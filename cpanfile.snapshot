@@ -211,10 +211,10 @@ DISTRIBUTIONS
       Encode::Alias 0
       ExtUtils::MakeMaker 0
       perl 5.008
-  Etherpad-API-0.11
-    pathname: L/LD/LDIDRY/Etherpad-API-0.11.tar.gz
+  Etherpad-API-1.2.10.0
+    pathname: L/LD/LDIDRY/Etherpad-API-1.2.10.0.tar.gz
     provides:
-      Etherpad::API 0.11
+      Etherpad::API 1.002010000
     requirements:
       ExtUtils::MakeMaker 0
       JSON::XS 0
@@ -434,8 +434,8 @@ DISTRIBUTIONS
       DBD::Pg 0
       ExtUtils::MakeMaker 0
       Mojolicious 5.81
-  Mojolicious-5.81
-    pathname: S/SR/SRI/Mojolicious-5.81.tar.gz
+  Mojolicious-5.82
+    pathname: S/SR/SRI/Mojolicious-5.82.tar.gz
     provides:
       Mojo undef
       Mojo::Asset undef
@@ -498,7 +498,7 @@ DISTRIBUTIONS
       Mojo::UserAgent::Server undef
       Mojo::UserAgent::Transactor undef
       Mojo::Util undef
-      Mojolicious 5.81
+      Mojolicious 5.82
       Mojolicious::Command undef
       Mojolicious::Command::cgi undef
       Mojolicious::Command::cpanify undef
