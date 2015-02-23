@@ -1,0 +1,53 @@
+# vim:set sts=4 sw=4 ts=4 ft=perl expandtab:
+{
+    ####################
+    # Hypnotoad settings
+    ####################
+    # see http://mojolicio.us/perldoc/Mojo/Server/Hypnotoad for a full list of settings
+    hypnotoad => {
+        # array of IP addresses and ports you want to listen to
+        listen => ['http://127.0.0.1:8080'],
+        # user and group you want for Padro to run with
+        # be sure that this user/group have rights on the padro directory
+        # if you launch padro from a different user, be sure that this user have the right to su this user/group
+        # => if current_user is not the user that you sets here and is not root, there's chances that it will fail
+        user   => 'www-data',
+        group  => 'www-data'
+    },
+    # Random string used to encrypt cookies
+    # Change it!
+    # mandatory
+    secrets           => ['secret'],
+
+    #########################
+    # Padro database settings
+    #########################
+    # Where all the pads will be stored
+    db => {
+        database => 'padro',
+        host     => 'localhost',
+        user     => 'DBUSER',
+        pwd      => 'DBPASSWORD'
+    },
+    ###################
+    # Etherpad settings
+    ###################
+    # Credentials to the Etherpad instance you want to connect with
+    ep => {
+        url    => 'http://pad.example.org',
+        apikey => 'XXXX',
+        # Optional: user and password
+        # user     => 'ep_user',
+        # password => 'ep_password'
+    },
+    ##########################
+    # Minion database settings
+    ##########################
+    # This will be used to queue Minion jobs
+    minion => {
+        database => 'minion',
+        host     => 'localhost',
+        user     => 'MINION_DBUSER',
+        pwd      => 'MINION_DBPASSWORD'
+    }
+}

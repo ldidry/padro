@@ -1,0 +1,13 @@
+% # vim:set sts=4 sw=4 ts=4 ft=html.epl expandtab:
+% layout 'default';
+% title $pad->{name};
+<h2><%= $pad->{name} %></h2>
+<p>
+    <dl>
+        <dt>Dernière édition</dt>
+        <dd><%= $pad->{last_edition} %></dd>
+        <dt>Nombre de révisions</dt>
+        <dd><%= $pad->{revisions} %></dd>
+    </d>
+</p>
+<%== $pad->{html} %>
