@@ -21,10 +21,10 @@ sub startup {
     );
 
     my $addr  = 'postgresql://';
-    $addr    .= $c->config->{minion}->{user};
-    $addr    .= ':'.$c->config->{minion}->{pwd};
-    $addr    .= '@'.$c->config->{minion}->{host};
-    $addr    .= '/'.$c->config->{minion}->{database};
+    $addr    .= $self->config->{minion}->{user};
+    $addr    .= ':'.$self->config->{minion}->{pwd};
+    $addr    .= '@'.$self->config->{minion}->{host};
+    $addr    .= '/'.$self->config->{minion}->{database};
     $self->plugin('Minion' => {Pg => $addr});
 
     # Add new MIME type
