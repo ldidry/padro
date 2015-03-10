@@ -2,12 +2,39 @@
 % layout 'default';
 % title $pad->{name};
 <h2><%= $pad->{name} %></h2>
-<p>
-    <dl>
-        <dt>Dernière édition</dt>
-        <dd><%= $pad->{last_edition} %></dd>
-        <dt>Nombre de révisions</dt>
-        <dd><%= $pad->{revisions} %></dd>
-    </d>
-</p>
-<%== $pad->{html} %>
+<div>
+    <p>
+        <dl>
+            <dt>Dernière édition</dt>
+            <dd><%= $pad->{last_edition} %></dd>
+            <dt>Nombre de révisions</dt>
+            <dd><%= $pad->{revisions} %></dd>
+        % if (defined($pad->{authors})) {
+            <dt>Auteurs</dt>
+            <dd>
+                <ul class="list-inline">
+                % my $anonymous = 0;
+                % $pad->{authors}->each(sub {
+                    % my ($author, $num) = @_;
+                    % if ($author->{name} eq 'anonymous') {
+                    %     $anonymous++;
+                    % } else {
+                    <li><%= $author->{name} %></li>
+                    % }
+                % });
+                % if ($anonymous) {
+                    <li><%= $anonymous %> anonyme(s)</li>
+                % }
+            </dd>
+        % }
+        </d>
+    </p>
+    <p>
+        <a class="btn btn-default" href="<%= url_for 'tpad' %>">Télécharger le pad au format .txt</a>
+        <a class="btn btn-default" href="<%= url_for 'hpad' %>">Télécharger le pad au format .html</a>
+    </p>
+</div>
+<hr/>
+<div class="well">
+        <%== $pad->{html} %>
+</div>

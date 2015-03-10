@@ -1,0 +1,12 @@
+[Unit]
+Description=Padro : minion worker
+After=padro.service
+
+[Service]
+WorkingDirectory=/var/padro
+ExecStart=/usr/local/bin/carton exec script/padro minion
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+

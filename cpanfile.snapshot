@@ -1,16 +1,16 @@
 # carton snapshot format: version 1.0
 DISTRIBUTIONS
-  CPAN-Meta-2.143240
-    pathname: D/DA/DAGOLDEN/CPAN-Meta-2.143240.tar.gz
+  CPAN-Meta-2.150001
+    pathname: D/DA/DAGOLDEN/CPAN-Meta-2.150001.tar.gz
     provides:
-      CPAN::Meta 2.143240
-      CPAN::Meta::Converter 2.143240
-      CPAN::Meta::Feature 2.143240
-      CPAN::Meta::History 2.143240
-      CPAN::Meta::Merge 2.143240
-      CPAN::Meta::Prereqs 2.143240
-      CPAN::Meta::Spec 2.143240
-      CPAN::Meta::Validator 2.143240
+      CPAN::Meta 2.150001
+      CPAN::Meta::Converter 2.150001
+      CPAN::Meta::Feature 2.150001
+      CPAN::Meta::History 2.150001
+      CPAN::Meta::Merge 2.150001
+      CPAN::Meta::Prereqs 2.150001
+      CPAN::Meta::Spec 2.150001
+      CPAN::Meta::Validator 2.150001
     requirements:
       CPAN::Meta::Requirements 2.121
       CPAN::Meta::YAML 0.008
@@ -38,12 +38,12 @@ DISTRIBUTIONS
       perl 5.006
       strict 0
       warnings 0
-  Class-MethodMaker-2.22
-    pathname: S/SC/SCHWIGON/class-methodmaker/Class-MethodMaker-2.22.tar.gz
+  Class-MethodMaker-2.23
+    pathname: S/SC/SCHWIGON/class-methodmaker/Class-MethodMaker-2.23.tar.gz
     provides:
-      Class::MethodMaker 2.22
+      Class::MethodMaker 2.23
       Class::MethodMaker::Constants undef
-      Class::MethodMaker::Engine 2.22
+      Class::MethodMaker::Engine 2.23
       Class::MethodMaker::OptExt undef
       Class::MethodMaker::V1Compat undef
       Generate undef
@@ -211,16 +211,16 @@ DISTRIBUTIONS
       Encode::Alias 0
       ExtUtils::MakeMaker 0
       perl 5.008
-  Etherpad-API-1.2.10.0
-    pathname: L/LD/LDIDRY/Etherpad-API-1.2.10.0.tar.gz
+  Etherpad-API-1.2.10.3
+    pathname: L/LD/LDIDRY/Etherpad-API-1.2.10.3.tar.gz
     provides:
-      Etherpad::API 1.002010000
+      Etherpad::API 1.002010003
     requirements:
       ExtUtils::MakeMaker 0
       JSON::XS 0
       LWP::UserAgent 0
       Test::Simple 0.44
-      URI::Escape 0
+      URI::Encode 0
   File-Listing-6.04
     pathname: G/GA/GAAS/File-Listing-6.04.tar.gz
     provides:
@@ -354,12 +354,13 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 0
       perl 5.006002
-  Minion-1.08
-    pathname: S/SR/SRI/Minion-1.08.tar.gz
+  Minion-1.10
+    pathname: S/SR/SRI/Minion-1.10.tar.gz
     provides:
-      Minion 1.08
+      Minion 1.10
       Minion::Backend undef
       Minion::Backend::File undef
+      Minion::Backend::File::_Guard undef
       Minion::Backend::Pg undef
       Minion::Command::minion undef
       Minion::Command::minion::job undef
@@ -370,7 +371,7 @@ DISTRIBUTIONS
     requirements:
       DBM::Deep 2.0011
       ExtUtils::MakeMaker 0
-      Mojolicious 5.81
+      Mojolicious 6.0
   Module-Build-0.4211
     pathname: L/LE/LEONT/Module-Build-0.4211.tar.gz
     provides:
@@ -421,10 +422,10 @@ DISTRIBUTIONS
       Text::ParseWords 0
       perl 5.008000
       version 0.87
-  Mojo-Pg-1.10
-    pathname: S/SR/SRI/Mojo-Pg-1.10.tar.gz
+  Mojo-Pg-1.12
+    pathname: S/SR/SRI/Mojo-Pg-1.12.tar.gz
     provides:
-      Mojo::Pg 1.10
+      Mojo::Pg 1.12
       Mojo::Pg::Database undef
       Mojo::Pg::Migrations undef
       Mojo::Pg::PubSub undef
@@ -433,9 +434,9 @@ DISTRIBUTIONS
     requirements:
       DBD::Pg 0
       ExtUtils::MakeMaker 0
-      Mojolicious 5.81
-  Mojolicious-5.82
-    pathname: S/SR/SRI/Mojolicious-5.82.tar.gz
+      Mojolicious 6.0
+  Mojolicious-6.01
+    pathname: S/SR/SRI/Mojolicious-6.01.tar.gz
     provides:
       Mojo undef
       Mojo::Asset undef
@@ -498,7 +499,7 @@ DISTRIBUTIONS
       Mojo::UserAgent::Server undef
       Mojo::UserAgent::Transactor undef
       Mojo::Util undef
-      Mojolicious 5.82
+      Mojolicious 6.01
       Mojolicious::Command undef
       Mojolicious::Command::cgi undef
       Mojolicious::Command::cpanify undef
@@ -670,17 +671,22 @@ DISTRIBUTIONS
       List::Util 1.09
       Scalar::Util 1.09
       Test::Builder 0
-  Test-Exception-0.36
-    pathname: E/EX/EXODIST/Test-Exception-0.36.tar.gz
+  Test-Exception-0.38
+    pathname: E/ET/ETHER/Test-Exception-0.38.tar.gz
     provides:
-      Test::Exception 0.36
+      Test::Exception 0.38
     requirements:
+      Carp 0
+      Exporter 0
+      ExtUtils::MakeMaker 0
       Sub::Uplevel 0.18
       Test::Builder 0.7
       Test::Builder::Tester 1.07
       Test::Harness 2.03
-      Test::More 0.7
-      Test::Simple 0.7
+      base 0
+      perl 5.006001
+      strict 0
+      warnings 0
   Test-Warn-0.30
     pathname: C/CH/CHORNY/Test-Warn-0.30.tar.gz
     provides:
@@ -705,10 +711,10 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 0
       common::sense 0
-  URI-1.65
-    pathname: E/ET/ETHER/URI-1.65.tar.gz
+  URI-1.67
+    pathname: E/ET/ETHER/URI-1.67.tar.gz
     provides:
-      URI 1.65
+      URI 1.67
       URI::Escape 3.31
       URI::Heuristic 4.20
       URI::IRI undef
@@ -719,14 +725,14 @@ DISTRIBUTIONS
       URI::_foreign undef
       URI::_generic undef
       URI::_idna undef
-      URI::_ldap 1.65
+      URI::_ldap 1.67
       URI::_login undef
-      URI::_punycode 1.65
+      URI::_punycode 1.67
       URI::_query undef
       URI::_segment undef
       URI::_server undef
       URI::_userpass undef
-      URI::data 1.65
+      URI::data 1.67
       URI::file 4.21
       URI::file::Base undef
       URI::file::FAT undef
@@ -739,7 +745,7 @@ DISTRIBUTIONS
       URI::gopher undef
       URI::http undef
       URI::https undef
-      URI::ldap 1.65
+      URI::ldap 1.67
       URI::ldapi undef
       URI::ldaps undef
       URI::mailto undef
@@ -751,7 +757,7 @@ DISTRIBUTIONS
       URI::rsync undef
       URI::rtsp undef
       URI::rtspu undef
-      URI::sip 1.65
+      URI::sip 1.67
       URI::sips undef
       URI::snews undef
       URI::ssh undef
@@ -768,6 +774,16 @@ DISTRIBUTIONS
       parent 0
       perl 5.008001
       utf8 0
+  URI-Encode-v1.0.1
+    pathname: M/MI/MITHUN/URI-Encode-v1.0.1.tar.gz
+    provides:
+      URI::Encode 1.000001
+    requirements:
+      Encode 2.12
+      Module::Build 0.38
+      Test::More 0
+      perl v5.8.1
+      version 0
   WWW-RobotRules-6.02
     pathname: G/GA/GAAS/WWW-RobotRules-6.02.tar.gz
     provides:

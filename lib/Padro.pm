@@ -68,13 +68,12 @@ sub startup {
             my $results = $db->query('SELECT * FROM pads WHERE name = (?)', $name);
 
             if ($results->rows == 1) {
-                return $results->hash;
+                my $r = $db->query('select authors.name from authors JOIN pad_has_authors ON authors.ep_id = pad_has_authors.author_id WHERE pad_has_authors.pad_id = (?) ORDER BY authors.name', $name);
+                my $pad = $results->hash;
+                $pad->{authors} = $r->hashes if ($r->rows > 0);
+                return $pad;
             } elsif ($results->rows > 1) {
                 $c->app->log->error('More than one row returned when looking for a pad, this is not supposed to happen!');
-
-                return undef;
-            } elsif ($counter > 1) {
-                $c->app->log->error('There\'s a problem while fetching '.$name);
 
                 return undef;
             } else {
@@ -88,12 +87,14 @@ sub startup {
 
                 my $text         = $ep->get_text($name);
                 my $html         = $ep->get_html($name);
-                my ($s, $m, $h, $day, $month, $year) = gmtime($ep->get_last_edited($name));
+                my $time         = $ep->get_last_edited($name);
+                $time =~ s/\d{3}$//;
+                my ($s, $m, $h, $day, $month, $year) = gmtime($time);
                 my $last_edition = sprintf('%04d-%02d-%02d %02d:%02d:%02d', $year + 1900, $month + 1, $day, $h, $m, $s);
 
-                my $r = $db->query('INSERT INTO pads (name, text, html, revisions, last_edition) VALUES (?, ?, ?, ?, ?)', ($name, $text, $html, $revisions, $last_edition));
+                my $r = $db->query('INSERT INTO pads (name, text, html, revisions, last_edition) VALUES (?, ?, ?, ?, ?) RETURNING *', ($name, $text, $html, $revisions, $last_edition));
 
-                return $c->find_or_fetch($name, ++$counter);
+                return $r->hash;
             }
         }
     );
@@ -153,7 +154,9 @@ sub startup {
 
             my $text         = $ep->get_text($name);
             my $html         = $ep->get_html($name);
-            my ($s, $m, $h, $day, $month, $year) = gmtime($ep->get_last_edited($name));
+            my $time         = $ep->get_last_edited($name);
+            $time =~ s/\d{3}$//;
+            my ($s, $m, $h, $day, $month, $year) = gmtime($time);
             my $last_edition = sprintf('%04d-%02d-%02d %02d:%02d:%02d', $year + 1900, $month + 1, $day, $h, $m, $s);
 
             my $r = $job->app->pg->db->query('INSERT INTO pads (name, text, html, revisions, last_edition) VALUES (?, ?, ?, ?, ?)', ($name, $text, $html, $revisions, $last_edition));
@@ -162,10 +165,13 @@ sub startup {
 
     # Database migration
     my $migrations = Mojo::Pg::Migrations->new(pg => $self->pg);
-    #$migrations->from_file('migrations.sql')->migrate(0)->migrate(1);
-    $migrations->from_file('migrations.sql')->migrate(1);
+    if ($self->mode eq 'development') {
+        $migrations->from_file('migrations.sql')->migrate(0)->migrate(1);
+        $self->app->minion->reset;
+    } else {
+        $migrations->from_file('migrations.sql')->migrate(1);
+    }
 
-    #$self->app->minion->reset;
 
     # Router
     my $r = $self->routes;

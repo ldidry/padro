@@ -39,6 +39,11 @@
         # Optional: user and password
         # user     => 'ep_user',
         # password => 'ep_password'
+        # Optional: web proxy settings
+        # proxy => {
+        #     http => 'http://my_web_proxy_url:my_web_proxy_port',
+        #     https => 'http://my_web_proxy_url:my_web_proxy_port',
+        # }
     },
     ##########################
     # Minion database settings

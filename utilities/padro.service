@@ -1,0 +1,16 @@
+[Unit]
+Description=Padro
+After=postgresql.service
+
+[Service]
+WorkingDirectory=/var/padro
+Type=forking
+PIDFile=/var/padro/script/hypnotoad.pid
+ExecStart=/usr/local/bin/carton exec hypnotoad script/padro
+ExecReload=/usr/local/bin/carton exec hypnotoad script/padro
+ExecStop=/usr/local/bin/carton exec hypnotoad -s script/padro
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
