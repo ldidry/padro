@@ -1,6 +1,6 @@
-requires "Mojolicious";
-requires "Mojolicious::Plugin::I18N";
-requires "Mojo::Pg";
+requires 'Mojolicious';
+requires 'Mojolicious::Plugin::I18N';
+requires 'Mojo::Pg';
 requires 'Minion', '== 4.06';
 requires 'Etherpad';
 requires 'Term::ProgressBar';
