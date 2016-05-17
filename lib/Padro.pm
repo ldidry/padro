@@ -2,7 +2,7 @@ package Padro;
 use Mojo::Base 'Mojolicious';
 use Mojo::Pg;
 use Mojo::Pg::Migrations;
-use Etherpad::API;
+use Etherpad;
 
 # This method will run once at server start
 sub startup {
@@ -24,36 +24,52 @@ sub startup {
     $addr    .= $self->config->{minion}->{user};
     $addr    .= ':'.$self->config->{minion}->{pwd};
     $addr    .= '@'.$self->config->{minion}->{host};
+    $addr    .= ':'.$self->config->{minion}->{port} if defined $self->config->{minion}->{port};
     $addr    .= '/'.$self->config->{minion}->{database};
     $self->plugin('Minion' => {Pg => $addr});
+
+    # Themes handling
+    shift @{$self->renderer->paths};
+    shift @{$self->static->paths};
+    if ($config->{theme} ne 'default') {
+        my $theme = $self->home->rel_dir('themes/'.$config->{theme});
+        push @{$self->renderer->paths}, $theme.'/templates' if -d $theme.'/templates';
+        push @{$self->static->paths}, $theme.'/public' if -d $theme.'/public';
+    }
+    push @{$self->renderer->paths}, $self->home->rel_dir('themes/default/templates');
+    push @{$self->static->paths}, $self->home->rel_dir('themes/default/public');
+
+    # Internationalization
+    my $lib = $self->home->rel_dir('themes/'.$config->{theme}.'/lib');
+    eval qq(use lib "$lib");
+    $self->plugin('I18N');
+
+    # Debug
+    $self->plugin('DebugDumperHelper');
 
     # Add new MIME type
     $self->types->type(txt => 'text/plain; charset=utf-8');
 
     # Helpers
     $self->helper(
-        debug => sub {
-            my $c = shift;
-            $c->app->log->debug($c->dumper(\@_));
-        }
-    );
-
-    $self->helper(
         pg => sub {
             my $c     = shift;
             my $addr  = 'postgresql://';
-            $addr    .= $c->config->{db}->{user};
-            $addr    .= ':'.$c->config->{db}->{pwd};
-            $addr    .= '@'.$c->config->{db}->{host};
+            $addr    .= $c->config->{db}->{host};
+            $addr    .= ':'.$c->config->{db}->{port} if defined $c->config->{db}->{port};
             $addr    .= '/'.$c->config->{db}->{database};
             state $pg = Mojo::Pg->new($addr);
+            $pg->password($c->config->{db}->{pwd});
+            $pg->username($c->config->{db}->{user});
+            return $pg;
         }
     );
 
     $self->helper(
         ep => sub {
             my $c     = shift;
-            state $ep = Etherpad::API->new($c->config->{ep});
+            state $ep = Etherpad->new($c->config->{ep});
+            return $ep;
         }
     );
 
@@ -162,6 +178,9 @@ sub startup {
             my $r = $job->app->pg->db->query('INSERT INTO pads (name, text, html, revisions, last_edition) VALUES (?, ?, ?, ?, ?)', ($name, $text, $html, $revisions, $last_edition));
         }
     );
+
+    # Check Etherpad connection
+    $self->app->ep->check_token();
 
     # Database migration
     my $migrations = Mojo::Pg::Migrations->new(pg => $self->pg);

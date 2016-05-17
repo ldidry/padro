@@ -1,6 +1,10 @@
 requires "Mojolicious";
 requires "Mojolicious::Plugin::I18N";
 requires "Mojo::Pg";
-requires "Minion";
-requires "Etherpad::API";
-requires "Term::ProgressBar";
+requires 'Minion', '== 4.06';
+requires 'Etherpad';
+requires 'Term::ProgressBar';
+requires 'IO::Socket::SSL';
+requires 'Locale::Maketext';
+requires 'Locale::Maketext::Extract';
+requires 'Mojolicious::Plugin::DebugDumperHelper';
