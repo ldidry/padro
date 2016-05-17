@@ -18,6 +18,8 @@ or
 sudo apt-get install carton
 ```
 
+NB: you may need to install `postgresql-server-dev-9.4` to install `DBD::Pg`.
+
 ## Installation
 
 After installing Carton :
