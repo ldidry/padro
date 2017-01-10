@@ -3,3 +3,6 @@ script/hypnotoad.pid
 local/*
 public/packed/*
 log/*
+*db
+*db-shm
+*db-wal

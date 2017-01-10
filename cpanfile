@@ -1,10 +1,11 @@
 requires 'Mojolicious';
 requires 'Mojolicious::Plugin::I18N';
+requires 'Mojolicious::Plugin::DebugDumperHelper';
 requires 'Mojo::Pg';
-requires 'Minion', '== 4.06';
+requires 'Minion';#, '== 4.06';
+requires 'Minion::Backend::SQLite';
 requires 'Etherpad';
 requires 'Term::ProgressBar';
 requires 'IO::Socket::SSL';
 requires 'Locale::Maketext';
 requires 'Locale::Maketext::Extract';
-requires 'Mojolicious::Plugin::DebugDumperHelper';

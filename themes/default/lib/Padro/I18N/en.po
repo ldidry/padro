@@ -1,0 +1,103 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2016 Luc Didry
+# This file is distributed under the same license as the Padro package.
+# Luc Didry <luc@didry.org>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. ($revision->{rev})
+#: themes/default/templates/pad/display.html.ep:60
+msgid "#%1 rev."
+msgstr ""
+
+#. (join(', ', @authors)
+#: themes/default/templates/pad/display.html.ep:37
+msgid "%1 and %2"
+msgstr ""
+
+#. (join(', ', @authors)
+#: themes/default/templates/pad/display.html.ep:33
+msgid "%1 and %2 anonymous"
+msgstr ""
+
+#. ($anonymous)
+#: themes/default/templates/pad/display.html.ep:31
+msgid "%1 anonymous"
+msgstr ""
+
+#. ($pad->{last_edition}->{year}, $pad->{last_edition}->{month}, $pad->{last_edition}->{day}, $pad->{last_edition}->{hour}, $pad->{last_edition}->{minute}, $pad->{last_edition}->{second})
+#: themes/default/templates/pad/display.html.ep:10
+msgid "%1-%2-%3 %4:%5:%6"
+msgstr ""
+
+#: themes/default/templates/pad/display.html.ep:40
+msgid "(still fetching informations about the authors)"
+msgstr ""
+
+#: themes/default/templates/pad/display.html.ep:17
+msgid "Author(s)"
+msgstr ""
+
+#: themes/default/templates/pad/display.html.ep:54
+msgid "Download the pad in HTML format"
+msgstr ""
+
+#: themes/default/templates/pad/display.html.ep:51
+msgid "Download the pad in text format"
+msgstr ""
+
+#: themes/default/templates/pad/display.html.ep:63
+msgid "Go to a saved revision"
+msgstr ""
+
+#: themes/default/templates/misc/index.html.ep:9
+msgid "How do I use it?"
+msgstr ""
+
+#: themes/default/templates/pad/display.html.ep:9
+msgid "Last edition"
+msgstr ""
+
+#: themes/default/templates/pad/display.html.ep:58
+msgid "Last revision"
+msgstr ""
+
+#: themes/default/templates/pad/display.html.ep:13
+msgid "Number of revisions"
+msgstr ""
+
+#: themes/default/templates/misc/index.html.ep:8
+msgid "Padro is service that transforms an <a href=\"http://etherpad.org/\">Etherpad</a> instance into a limited read-only mirror: you have access to the last pad content, and to it's saved revisions content. You will be able to download text and HTML version of the pad's content."
+msgstr ""
+
+#: themes/default/templates/pad/display.html.ep:73
+msgid "Sorry, I don't yet have the HTML content of the pad. Please refresh a moment later."
+msgstr ""
+
+#. (url_for('ppad', pad => l('name_of_my_pad')
+#: themes/default/templates/misc/index.html.ep:10
+msgid "To access to a pad, you just need to go on %1"
+msgstr ""
+
+#. (url_for('hpad', pad => l('name_of_my_pad')
+#: themes/default/templates/misc/index.html.ep:12
+msgid "To download it in HTML format: %1"
+msgstr ""
+
+#. (url_for('tpad', pad => l('name_of_my_pad')
+#: themes/default/templates/misc/index.html.ep:11
+msgid "To download it in text format: %1"
+msgstr ""
+
+#: themes/default/templates/misc/index.html.ep:7
+msgid "What is Padro?"
+msgstr ""

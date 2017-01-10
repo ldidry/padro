@@ -9,27 +9,28 @@ sub run {
     my $c = shift;
     my $file = shift;
 
-    my @pads;
+    my $pads;
     if (defined($file)) {
         open my $f, '<', $file or die "Unable to open $file: $!";
 
         while (<$f>) {
-            push @pads, $_;
+            push @{$pads}, $_;
         }
     } else {
         my $ep   = $c->app->ep;
 
-        @pads = $ep->list_all_pads();
+        $pads = $ep->list_all_pads();
+        say '[ERROR] Unable to get pads list' unless defined $pads;
     }
-    if (scalar(@pads)) {
+    if (defined($pads) && scalar(@{$pads})) {
         my $progress = Term::ProgressBar->new(
             {
-                name => 'Enqueuing '.scalar(@pads).' pads',
-                count => scalar(@pads),
+                name => 'Enqueuing '.scalar(@{$pads}).' pads',
+                count => scalar(@{$pads}),
                 ETA   => 'linear'
             }
         );
-        for my $pad (@pads) {
+        for my $pad (@{$pads}) {
             $c->app->minion->enqueue(fetch_pad => [($pad)]) if (defined($pad));
             $progress->update();
         }

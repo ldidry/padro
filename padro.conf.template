@@ -7,12 +7,9 @@
     hypnotoad => {
         # array of IP addresses and ports you want to listen to
         listen => ['http://127.0.0.1:8080'],
-        # user and group you want for Padro to run with
-        # be sure that this user/group have rights on the padro directory
-        # if you launch padro from a different user, be sure that this user have the right to su this user/group
-        # => if current_user is not the user that you sets here and is not root, there's chances that it will fail
-        user   => 'www-data',
-        group  => 'www-data'
+        # if you use Lutim behind a reverse proxy like Nginx, you want to set proxy to 1
+        # if you use Lutim directly, let it commented
+        #proxy  => 1,
     },
     # Random string used to encrypt cookies
     # Change it!
@@ -55,4 +52,14 @@
         user     => 'MINION_DBUSER',
         pwd      => 'MINION_DBPASSWORD'
     }
+
+    # choose a theme. See the available themes in `themes` directory
+    # optional, default is 'default'
+    #theme         => 'default',
+
+    # URL sub-directory in which you want Padro to be accessible
+    # example: you want to have Padro under https://example.org/padro/
+    # => set prefix to '/padro' or to '/padro/', it doesn't matter
+    # optional, defaut is /
+    #prefix        => '/',
 }

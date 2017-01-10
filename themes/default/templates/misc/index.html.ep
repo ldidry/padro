@@ -4,8 +4,9 @@
 
 <h1>Padro</h1>
 
-<div>
-    <p>Pour accéder à un pad, il suffit d'aller sur <%= url_for('ppad', pad => 'nom_de_mon_pad')->to_abs() %></p>
-    <p>Pour le télécharger au format texte : <%= url_for('tpad', pad => 'nom_de_mon_pad')->to_abs() %></p>
-    <p>Pour le télécharger au format HTML : <%= url_for('hpad', pad => 'nom_de_mon_pad')->to_abs() %></p>
-</div>
+<h2><%= l('What is Padro?') %></h2>
+<p><%== l('Padro is service that transforms an <a href="http://etherpad.org/">Etherpad</a> instance into a limited read-only mirror: you have access to the last pad content, and to it\'s saved revisions content. You will be able to download text and HTML version of the pad\'s content.') %></p>
+<h2><%= l('How do I use it?') %></h2>
+<p><%= l('To access to a pad, you just need to go on %1', url_for('ppad', pad => l('name_of_my_pad'))->to_abs()) %></p>
+<p><%= l('To download it in text format: %1', url_for('tpad', pad => l('name_of_my_pad'))->to_abs()) %></p>
+<p><%= l('To download it in HTML format: %1', url_for('hpad', pad => l('name_of_my_pad'))->to_abs()) %></p>

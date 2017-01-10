@@ -1,0 +1,5 @@
+themes/default/templates/layouts/default.html.ep
+themes/default/templates/misc/index.html.ep
+themes/default/templates/pad/display.html.ep
+lib/Padro.pm
+lib/Padro/Controller/Pad.pm

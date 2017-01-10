@@ -5,36 +5,71 @@
 <div>
     <p>
         <dl>
-            <dt>Dernière édition</dt>
-            <dd><%= $pad->{last_edition} %></dd>
-            <dt>Nombre de révisions</dt>
+        % if ($pad->{last_edition}->{year}) {
+            <dt><%= l('Last edition') %></dt>
+            <dd><%= l('%1-%2-%3 %4:%5:%6', $pad->{last_edition}->{year}, $pad->{last_edition}->{month}, $pad->{last_edition}->{day}, $pad->{last_edition}->{hour}, $pad->{last_edition}->{minute}, $pad->{last_edition}->{second}) %></dd>
+        % }
+        % if ($pad->{revisions}) {
+            <dt><%= l('Number of revisions') %></dt>
             <dd><%= $pad->{revisions} %></dd>
+        % }
         % if (defined($pad->{authors})) {
-            <dt>Auteurs</dt>
+            <dt><%= l('Author(s)') %></dt>
             <dd>
-                <ul class="list-inline">
                 % my $anonymous = 0;
+                % my @authors;
                 % $pad->{authors}->each(sub {
                     % my ($author, $num) = @_;
                     % if ($author->{name} eq 'anonymous') {
                     %     $anonymous++;
                     % } else {
-                    <li><%= $author->{name} %></li>
+                    %     push @authors, $author->{name};
                     % }
                 % });
                 % if ($anonymous) {
-                    <li><%= $anonymous %> anonyme(s)</li>
+                %   if ($anonymous == $pad->{authors}->size) {
+                    <%= l('%1 anonymous', $anonymous) %>
+                %   } else {
+                    <%= l('%1 and %2 anonymous', join(', ', @authors), $anonymous) %>
+                %   }
+                % } else {
+                    % my $last = pop @authors;
+                    <%= l('%1 and %2', join(', ', @authors), $last) %>
+                % }
+                % if (defined($pad->{authors_nb}) && $pad->{authors}->size < $pad->{authors_nb}) {
+                    <%= l('(still fetching informations about the authors)') %>
                 % }
             </dd>
         % }
         </d>
     </p>
     <p>
-        <a class="btn btn-default" href="<%= url_for 'tpad' %>">Télécharger le pad au format .txt</a>
-        <a class="btn btn-default" href="<%= url_for 'hpad' %>">Télécharger le pad au format .html</a>
+% if (defined $pad->{revs}) {
+    <form class="form-inline" method="get" action="<%= url_for 'ppad' %>">
+% }
+% if (defined $pad->{text}) {
+        <a class="btn btn-default" href="<%= url_with 'tpad' %>"><%= l('Download the pad in text format') %></a>
+% }
+% if (defined $pad->{html}) {
+        <a class="btn btn-default" href="<%= url_with 'hpad' %>"><%= l('Download the pad in HTML format') %></a>
+% }
+% if (defined $pad->{revs}) {
+            <select class="form-control" name="rev">
+                <option value=""<%= 'selected' unless defined $rev %>><%= l('Last revision') %></option>
+            % for my $revision (@{$pad->{revs}}) {
+                <option value="<%= $revision->{rev} %>"<%= 'selected' if (defined($rev) && $revision->{rev} == $rev) %>><%= l('#%1 rev.', $revision->{rev}) %></option>
+            % }
+            </select>
+            <button type="submit" class="btn btn-primary"><%= l('Go to a saved revision') %></button>
+        </form>
+% }
     </p>
 </div>
 <hr/>
 <div class="well">
+% if (defined $pad->{html}) {
         <%== $pad->{html} %>
+% } else {
+        <%= l('Sorry, I don\'t yet have the HTML content of the pad. Please refresh a moment later.') %>
+% }
 </div>
