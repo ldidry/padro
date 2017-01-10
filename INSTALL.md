@@ -49,14 +49,10 @@ Then
 
 ```
 CREATE USER padro_user WITH PASSWORD 'padro_pwd';
-CREATE DATABASE padro;
-GRANT ALL PRIVILEGES ON DATABASE padro to padro_user;
-CREATE USER minion_user WITH PASSWORD 'minion_pwd';
-CREATE DATABASE minion;
-GRANT ALL PRIVILEGES ON DATABASE minion to minion_user;
+CREATE DATABASE padro OWNER padro_user;
 ```
 
-(Don't forget to update your `padro.conf` with the accurate database users and passwords)
+(Don't forget to update your `padro.conf` with the accurate database user and password)
 
 ## Starting Padro from command line
 

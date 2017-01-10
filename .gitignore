@@ -1,8 +1,12 @@
 padro.conf
 script/hypnotoad.pid
 local/*
-public/packed/*
 log/*
-*db
-*db-shm
-*db-wal
+*.swp
+*.db
+*.db-shm
+*.db-wal
+*.db-journal
+themes/*
+!themes/default
+!themes/default/*
