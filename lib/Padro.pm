@@ -21,24 +21,18 @@ sub startup {
         }
     );
 
-    my $addr  = 'postgresql://';
-    $addr    .= $self->config->{minion}->{user};
-    $addr    .= ':'.$self->config->{minion}->{pwd};
-    $addr    .= '@'.$self->config->{minion}->{host};
-    $addr    .= ':'.$self->config->{minion}->{port} if defined $self->config->{minion}->{port};
-    $addr    .= '/'.$self->config->{minion}->{database};
     $self->plugin('Minion' => {SQLite => 'sqlite:minion.db'});
 
     # Themes handling
     shift @{$self->renderer->paths};
     shift @{$self->static->paths};
     if ($config->{theme} ne 'default') {
-        my $theme = $self->home->rel_dir('themes/'.$config->{theme});
+        my $theme = $self->home->rel_file('themes/'.$config->{theme});
         push @{$self->renderer->paths}, $theme.'/templates' if -d $theme.'/templates';
         push @{$self->static->paths}, $theme.'/public' if -d $theme.'/public';
     }
-    push @{$self->renderer->paths}, $self->home->rel_dir('themes/default/templates');
-    push @{$self->static->paths}, $self->home->rel_dir('themes/default/public');
+    push @{$self->renderer->paths}, $self->home->rel_file('themes/default/templates');
+    push @{$self->static->paths}, $self->home->rel_file('themes/default/public');
 
     # Hooks
     $self->hook(after_static => sub {
@@ -47,7 +41,7 @@ sub startup {
     });
 
     # Internationalization
-    my $lib = $self->home->rel_dir('themes/'.$config->{theme}.'/lib');
+    my $lib = $self->home->rel_file('themes/'.$config->{theme}.'/lib');
     eval qq(use lib "$lib");
     $self->plugin('I18N');
 

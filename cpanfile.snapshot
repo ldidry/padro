@@ -375,10 +375,10 @@ DISTRIBUTIONS
       perl 5.006
       strict 0
       warnings 0
-  Mojo-Pg-2.34
-    pathname: S/SR/SRI/Mojo-Pg-2.34.tar.gz
+  Mojo-Pg-2.35
+    pathname: S/SR/SRI/Mojo-Pg-2.35.tar.gz
     provides:
-      Mojo::Pg 2.34
+      Mojo::Pg 2.35
       Mojo::Pg::Database undef
       Mojo::Pg::Migrations undef
       Mojo::Pg::PubSub undef
@@ -387,7 +387,7 @@ DISTRIBUTIONS
     requirements:
       DBD::Pg 3.005001
       ExtUtils::MakeMaker 0
-      Mojolicious 7.12
+      Mojolicious 7.15
   Mojo-SQLite-1.003
     pathname: D/DB/DBOOK/Mojo-SQLite-1.003.tar.gz
     provides:
@@ -410,8 +410,8 @@ DISTRIBUTIONS
       URI::db 0.15
       URI::file 4.21
       perl 5.010001
-  Mojolicious-7.14
-    pathname: S/SR/SRI/Mojolicious-7.14.tar.gz
+  Mojolicious-7.18
+    pathname: S/SR/SRI/Mojolicious-7.18.tar.gz
     provides:
       Mojo undef
       Mojo::Asset undef
@@ -433,6 +433,7 @@ DISTRIBUTIONS
       Mojo::Date undef
       Mojo::EventEmitter undef
       Mojo::Exception undef
+      Mojo::File undef
       Mojo::Headers undef
       Mojo::HelloWorld undef
       Mojo::Home undef
@@ -475,7 +476,7 @@ DISTRIBUTIONS
       Mojo::UserAgent::Transactor undef
       Mojo::Util undef
       Mojo::WebSocket undef
-      Mojolicious 7.14
+      Mojolicious 7.18
       Mojolicious::Command undef
       Mojolicious::Command::cgi undef
       Mojolicious::Command::cpanify undef
