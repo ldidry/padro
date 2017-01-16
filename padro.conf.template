@@ -38,6 +38,17 @@
         pwd      => 'DBPASSWORD'
     },
 
+    #########################
+    # Minion database settings
+    #########################
+    # Where all the jobs will be enqueued
+    minion_db => {
+        database => 'padro_minion',
+        host     => 'localhost',
+        user     => 'MINIONDBUSER',
+        pwd      => 'MINIONDBPASSWORD'
+    },
+
     ###################
     # Etherpad settings
     ###################

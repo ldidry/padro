@@ -273,10 +273,10 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 6.30
       Locale::Maketext 1.17
-  Minion-6.02
-    pathname: S/SR/SRI/Minion-6.02.tar.gz
+  Minion-4.06
+    pathname: S/SR/SRI/Minion-4.06.tar.gz
     provides:
-      Minion 6.02
+      Minion 4.06
       Minion::Backend undef
       Minion::Backend::Pg undef
       Minion::Command::minion undef

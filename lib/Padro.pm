@@ -21,7 +21,20 @@ sub startup {
         }
     );
 
-    $self->plugin('Minion' => {SQLite => 'sqlite:minion.db'});
+    my $addr  = 'postgresql://';
+    if (defined $config->{minion_db}->{user}) {
+        $addr .= $config->{minion_db}->{user};
+        if (defined $config->{minion_db}->{pwd}) {
+            my $pwd = $config->{minion_db}->{pwd};
+            $pwd =~ s/@/\\@/g;
+            $addr .= ':'.$pwd;
+        }
+        $addr .= '@';
+    }
+    $addr    .= $config->{minion_db}->{host};
+    $addr    .= ':'.$config->{minion_db}->{port} if defined $config->{minion_db}->{port};
+    $addr    .= '/'.$config->{minion_db}->{database};
+    $self->plugin('Minion' => { Pg => $addr });
 
     # Themes handling
     shift @{$self->renderer->paths};
