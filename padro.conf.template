@@ -52,6 +52,11 @@
     ###################
     # Etherpad settings
     ###################
+    # Have you already imported all your pads? If yes, uncomment it.
+    # If set to 1, Padro will not try to contact the Etherpad instance to fetch pads.
+    # optional, default to 0
+    #already_imported => 1,
+
     # Credentials to the Etherpad instance you want to connect with
     # mandatory
     ep => {

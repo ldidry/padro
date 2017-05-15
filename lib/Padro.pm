@@ -13,11 +13,12 @@ sub startup {
     # Get config
     my $config = $self->plugin('config', default =>
         {
-            db => {
+            db               => {
                 database => 'padro',
                 host     => 'localhost',
             },
-            theme => 'default',
+            theme            => 'default',
+            already_imported => 0
         }
     );
 
@@ -111,7 +112,7 @@ sub startup {
                 $c->app->log->error('More than one row returned when looking for a pad, this is not supposed to happen!');
 
                 return undef;
-            } else {
+            } elsif (!$c->app->config('already_imported')) {
                 my $ep         = $c->app->ep;
                 my $revisions  = $ep->get_revisions_count($name);
 
@@ -127,6 +128,8 @@ sub startup {
                 my $r = $db->query('INSERT INTO pads (name, revisions) VALUES (?, ?) RETURNING *', ($name, $revisions));
 
                 return $r->hash;
+            } else {
+                return undef;
             }
         }
     );
@@ -295,7 +298,7 @@ sub startup {
     );
 
     # Check Etherpad connection
-    $self->app->ep->check_token();
+    $self->app->ep->check_token() unless $config->{'already_imported'};
 
     # Database migration
     my $migrations = Mojo::Pg::Migrations->new(pg => $self->pg);
