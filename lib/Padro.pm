@@ -2,6 +2,7 @@ package Padro;
 use Mojo::Base 'Mojolicious';
 use Mojo::Pg;
 use Mojo::Pg::Migrations;
+use Mojo::URL;
 use Etherpad;
 
 # This method will run once at server start
@@ -22,20 +23,17 @@ sub startup {
         }
     );
 
-    my $addr  = 'postgresql://';
-    if (defined $config->{minion_db}->{user}) {
-        $addr .= $config->{minion_db}->{user};
-        if (defined $config->{minion_db}->{pwd}) {
-            my $pwd = $config->{minion_db}->{pwd};
-            $pwd =~ s/@/\\@/g;
-            $addr .= ':'.$pwd;
-        }
-        $addr .= '@';
-    }
-    $addr    .= $config->{minion_db}->{host};
-    $addr    .= ':'.$config->{minion_db}->{port} if defined $config->{minion_db}->{port};
-    $addr    .= '/'.$config->{minion_db}->{database};
-    $self->plugin('Minion' => { Pg => $addr });
+    my $addr  = Mojo::URL->new
+                    ->scheme('postgresql')
+                    ->host($config->{minion_db}->{host})
+                    ->path('/'.$config->{minion_db}->{database});
+    $addr->port($config->{minion_db}->{port}) if defined $config->{minion_db}->{port};
+    my $pwd  = $config->{minion_db}->{pwd};
+       $pwd  =~ s/:/\\:/g;
+    my $user = $config->{minion_db}->{user};
+       $user =~ s/:/\\:/g;
+    $addr->userinfo($user.':'.$pwd);
+    $self->plugin('Minion' => { Pg => $addr->to_unsafe_string });
 
     # Themes handling
     shift @{$self->renderer->paths};
@@ -69,13 +67,14 @@ sub startup {
     $self->helper(
         pg => sub {
             my $c     = shift;
-            my $addr  = 'postgresql://';
-            $addr    .= $c->config->{db}->{host};
-            $addr    .= ':'.$c->config->{db}->{port} if defined $c->config->{db}->{port};
-            $addr    .= '/'.$c->config->{db}->{database};
+            my $addr  = Mojo::URL->new
+                            ->scheme('postgresql')
+                            ->host($c->config('minion_db')->{host})
+                            ->path('/'.$c->config('minion_db')->{database});
+            $addr->port($c->config('minion_db')->{port}) if defined $c->config('minion_db')->{port};
             state $pg = Mojo::Pg->new($addr);
-            $pg->password($c->config->{db}->{pwd});
-            $pg->username($c->config->{db}->{user});
+            $pg->password($c->config('db')->{pwd});
+            $pg->username($c->config('db')->{user});
             return $pg;
         }
     );
@@ -83,7 +82,7 @@ sub startup {
     $self->helper(
         ep => sub {
             my $c     = shift;
-            state $ep = Etherpad->new($c->config->{ep});
+            state $ep = Etherpad->new($c->config('ep'));
             return $ep;
         }
     );
