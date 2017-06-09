@@ -38,6 +38,19 @@ DISTRIBUTIONS
       perl 5.006
       strict 0
       warnings 0
+  Class-Method-Modifiers-2.12
+    pathname: E/ET/ETHER/Class-Method-Modifiers-2.12.tar.gz
+    provides:
+      Class::Method::Modifiers 2.12
+    requirements:
+      B 0
+      Carp 0
+      Exporter 0
+      ExtUtils::MakeMaker 0
+      base 0
+      perl 5.006
+      strict 0
+      warnings 0
   Class-MethodMaker-2.24
     pathname: S/SC/SCHWIGON/class-methodmaker/Class-MethodMaker-2.24.tar.gz
     provides:
@@ -50,6 +63,13 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 0
       perl 5.006
+  Clone-0.39
+    pathname: G/GA/GARU/Clone-0.39.tar.gz
+    provides:
+      Clone 0.39
+    requirements:
+      ExtUtils::MakeMaker 0
+      Test::More 0
   DBD-Pg-3.5.3
     pathname: T/TU/TURNSTEP/DBD-Pg-3.5.3.tar.gz
     provides:
@@ -61,25 +81,6 @@ DISTRIBUTIONS
       Test::More 0.88
       Time::HiRes 0
       version 0
-  DBD-SQLite-1.52
-    pathname: I/IS/ISHIGAKI/DBD-SQLite-1.52.tar.gz
-    provides:
-      DBD::SQLite 1.52
-      DBD::SQLite::Constants undef
-      DBD::SQLite::VirtualTable 1.52
-      DBD::SQLite::VirtualTable::Cursor 1.52
-      DBD::SQLite::VirtualTable::FileContent undef
-      DBD::SQLite::VirtualTable::FileContent::Cursor undef
-      DBD::SQLite::VirtualTable::PerlData undef
-      DBD::SQLite::VirtualTable::PerlData::Cursor undef
-    requirements:
-      DBI 1.57
-      ExtUtils::MakeMaker 0
-      File::Spec 0.82
-      Test::Builder 0.86
-      Test::More 0.47
-      Tie::Hash 0
-      perl 5.006
   DBI-1.636
     pathname: T/TI/TIMB/DBI-1.636.tar.gz
     provides:
@@ -175,6 +176,14 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 6.48
       Test::Simple 0.90
       perl 5.008
+  Devel-GlobalDestruction-0.14
+    pathname: H/HA/HAARG/Devel-GlobalDestruction-0.14.tar.gz
+    provides:
+      Devel::GlobalDestruction 0.14
+    requirements:
+      ExtUtils::MakeMaker 0
+      Sub::Exporter::Progressive 0.001011
+      perl 5.006
   Etherpad-1.2.13.0
     pathname: L/LD/LDIDRY/Etherpad-1.2.13.0.tar.gz
     provides:
@@ -182,45 +191,14 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 0
       Mojolicious 6.0
-  ExtUtils-Config-0.008
-    pathname: L/LE/LEONT/ExtUtils-Config-0.008.tar.gz
+  Hash-Merge-0.200
+    pathname: R/RE/REHSACK/Hash-Merge-0.200.tar.gz
     provides:
-      ExtUtils::Config 0.008
+      Hash::Merge 0.200
     requirements:
-      Data::Dumper 0
-      ExtUtils::MakeMaker 6.30
-      strict 0
-      warnings 0
-  ExtUtils-Helpers-0.026
-    pathname: L/LE/LEONT/ExtUtils-Helpers-0.026.tar.gz
-    provides:
-      ExtUtils::Helpers 0.026
-      ExtUtils::Helpers::Unix 0.026
-      ExtUtils::Helpers::VMS 0.026
-      ExtUtils::Helpers::Windows 0.026
-    requirements:
-      Carp 0
-      Exporter 5.57
+      Clone 0
       ExtUtils::MakeMaker 0
-      File::Basename 0
-      File::Copy 0
-      File::Spec::Functions 0
-      Text::ParseWords 3.24
-      perl 5.006
-      strict 0
-      warnings 0
-  ExtUtils-InstallPaths-0.011
-    pathname: L/LE/LEONT/ExtUtils-InstallPaths-0.011.tar.gz
-    provides:
-      ExtUtils::InstallPaths 0.011
-    requirements:
-      Carp 0
-      ExtUtils::Config 0.002
-      ExtUtils::MakeMaker 0
-      File::Spec 0
-      perl 5.006
-      strict 0
-      warnings 0
+      perl 5.008001
   IO-Socket-IP-0.37
     pathname: P/PE/PEVANS/IO-Socket-IP-0.37.tar.gz
     provides:
@@ -229,17 +207,17 @@ DISTRIBUTIONS
       IO::Socket 0
       Socket 1.97
       Test::More 0.88
-  IO-Socket-SSL-2.043
-    pathname: S/SU/SULLR/IO-Socket-SSL-2.043.tar.gz
+  IO-Socket-SSL-2.048
+    pathname: S/SU/SULLR/IO-Socket-SSL-2.048.tar.gz
     provides:
-      IO::Socket::SSL 2.043
+      IO::Socket::SSL 2.048
       IO::Socket::SSL::Intercept 2.014
-      IO::Socket::SSL::OCSP_Cache 2.043
-      IO::Socket::SSL::OCSP_Resolver 2.043
+      IO::Socket::SSL::OCSP_Cache 2.048
+      IO::Socket::SSL::OCSP_Resolver 2.048
       IO::Socket::SSL::PublicSuffix undef
-      IO::Socket::SSL::SSL_Context 2.043
-      IO::Socket::SSL::SSL_HANDLE 2.043
-      IO::Socket::SSL::Session_Cache 2.043
+      IO::Socket::SSL::SSL_Context 2.048
+      IO::Socket::SSL::SSL_HANDLE 2.048
+      IO::Socket::SSL::Session_Cache 2.048
       IO::Socket::SSL::Utils 2.014
     requirements:
       ExtUtils::MakeMaker 0
@@ -273,6 +251,13 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 6.30
       Locale::Maketext 1.17
+  MRO-Compat-0.13
+    pathname: H/HA/HAARG/MRO-Compat-0.13.tar.gz
+    provides:
+      MRO::Compat 0.13
+    requirements:
+      ExtUtils::MakeMaker 0
+      perl 5.006
   Minion-4.06
     pathname: S/SR/SRI/Minion-4.06.tar.gz
     provides:
@@ -288,18 +273,6 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 0
       Mojolicious 6.0
-  Minion-Backend-SQLite-0.009
-    pathname: D/DB/DBOOK/Minion-Backend-SQLite-0.009.tar.gz
-    provides:
-      Minion::Backend::SQLite 0.009
-    requirements:
-      Minion 4.0
-      Module::Build::Tiny 0.034
-      Mojo::SQLite 1.002
-      Mojolicious 6.0
-      Sys::Hostname 0
-      Time::HiRes 0
-      perl 5.010001
   Module-Build-0.4218
     pathname: L/LE/LEONT/Module-Build-0.4218.tar.gz
     provides:
@@ -350,35 +323,20 @@ DISTRIBUTIONS
       Text::ParseWords 0
       perl 5.006001
       version 0.87
-  Module-Build-Tiny-0.039
-    pathname: L/LE/LEONT/Module-Build-Tiny-0.039.tar.gz
+  Module-Runtime-0.014
+    pathname: Z/ZE/ZEFRAM/Module-Runtime-0.014.tar.gz
     provides:
-      Module::Build::Tiny 0.039
+      Module::Runtime 0.014
     requirements:
-      CPAN::Meta 0
-      DynaLoader 0
-      Exporter 5.57
-      ExtUtils::CBuilder 0
-      ExtUtils::Config 0.003
-      ExtUtils::Helpers 0.020
-      ExtUtils::Install 0
-      ExtUtils::InstallPaths 0.002
-      ExtUtils::ParseXS 0
-      File::Basename 0
-      File::Find 0
-      File::Path 0
-      File::Spec::Functions 0
-      Getopt::Long 2.36
-      JSON::PP 2
-      Pod::Man 0
-      TAP::Harness::Env 0
+      Module::Build 0
+      Test::More 0
       perl 5.006
       strict 0
       warnings 0
-  Mojo-Pg-2.35
-    pathname: S/SR/SRI/Mojo-Pg-2.35.tar.gz
+  Mojo-Pg-3.06
+    pathname: S/SR/SRI/Mojo-Pg-3.06.tar.gz
     provides:
-      Mojo::Pg 2.35
+      Mojo::Pg 3.06
       Mojo::Pg::Database undef
       Mojo::Pg::Migrations undef
       Mojo::Pg::PubSub undef
@@ -387,31 +345,10 @@ DISTRIBUTIONS
     requirements:
       DBD::Pg 3.005001
       ExtUtils::MakeMaker 0
-      Mojolicious 7.15
-  Mojo-SQLite-1.003
-    pathname: D/DB/DBOOK/Mojo-SQLite-1.003.tar.gz
-    provides:
-      Mojo::SQLite 1.003
-      Mojo::SQLite::Database 1.003
-      Mojo::SQLite::Migrations 1.003
-      Mojo::SQLite::PubSub 1.003
-      Mojo::SQLite::Results 1.003
-      Mojo::SQLite::Transaction 1.003
-    requirements:
-      Carp 0
-      DBD::SQLite 1.50
-      DBI 1.627
-      File::Spec::Functions 0
-      File::Temp 0
-      Module::Build::Tiny 0.034
-      Mojolicious 6.14
-      Scalar::Util 0
-      URI 1.69
-      URI::db 0.15
-      URI::file 4.21
-      perl 5.010001
-  Mojolicious-7.18
-    pathname: S/SR/SRI/Mojolicious-7.18.tar.gz
+      Mojolicious 7.32
+      SQL::Abstract 1.81
+  Mojolicious-7.33
+    pathname: S/SR/SRI/Mojolicious-7.33.tar.gz
     provides:
       Mojo undef
       Mojo::Asset undef
@@ -443,6 +380,7 @@ DISTRIBUTIONS
       Mojo::IOLoop::Server undef
       Mojo::IOLoop::Stream undef
       Mojo::IOLoop::Subprocess undef
+      Mojo::IOLoop::TLS undef
       Mojo::JSON undef
       Mojo::JSON::Pointer undef
       Mojo::Loader undef
@@ -460,6 +398,8 @@ DISTRIBUTIONS
       Mojo::Server::Daemon undef
       Mojo::Server::Hypnotoad undef
       Mojo::Server::Morbo undef
+      Mojo::Server::Morbo::Backend undef
+      Mojo::Server::Morbo::Backend::Poll undef
       Mojo::Server::PSGI undef
       Mojo::Server::PSGI::_IO undef
       Mojo::Server::Prefork undef
@@ -476,7 +416,7 @@ DISTRIBUTIONS
       Mojo::UserAgent::Transactor undef
       Mojo::Util undef
       Mojo::WebSocket undef
-      Mojolicious 7.18
+      Mojolicious 7.33
       Mojolicious::Command undef
       Mojolicious::Command::cgi undef
       Mojolicious::Command::cpanify undef
@@ -544,6 +484,43 @@ DISTRIBUTIONS
       Mojolicious 5
       Test::More 0
       perl 5.010001
+  Mojolicious-Plugin-PgURLHelper-0.02
+    pathname: L/LD/LDIDRY/Mojolicious-Plugin-PgURLHelper-0.02.tar.gz
+    provides:
+      Mojolicious::Plugin::PgURLHelper 0.02
+    requirements:
+      ExtUtils::MakeMaker 0
+      Mojolicious 7.23
+  Moo-2.003002
+    pathname: H/HA/HAARG/Moo-2.003002.tar.gz
+    provides:
+      Method::Generate::Accessor undef
+      Method::Generate::BuildAll undef
+      Method::Generate::Constructor undef
+      Method::Generate::DemolishAll undef
+      Moo 2.003002
+      Moo::HandleMoose undef
+      Moo::HandleMoose::FakeConstructor undef
+      Moo::HandleMoose::FakeMetaClass undef
+      Moo::HandleMoose::_TypeMap undef
+      Moo::Object undef
+      Moo::Role 2.003002
+      Moo::_Utils undef
+      Moo::_mro undef
+      Moo::_strictures undef
+      Moo::sification undef
+      oo undef
+    requirements:
+      Class::Method::Modifiers 1.1
+      Devel::GlobalDestruction 0.11
+      Exporter 5.57
+      ExtUtils::MakeMaker 0
+      Module::Runtime 0.014
+      Role::Tiny 2.000004
+      Scalar::Util 0
+      Sub::Defer 2.003001
+      Sub::Quote 2.003001
+      perl 5.006
   Net-SSLeay-1.74
     pathname: M/MI/MIKEM/Net-SSLeay-1.74.tar.gz
     provides:
@@ -554,6 +531,45 @@ DISTRIBUTIONS
       MIME::Base64 0
       Test::More 0.60_01
       perl 5.005
+  Role-Tiny-2.000005
+    pathname: H/HA/HAARG/Role-Tiny-2.000005.tar.gz
+    provides:
+      Role::Tiny 2.000005
+      Role::Tiny::With 2.000005
+    requirements:
+      Exporter 5.57
+      perl 5.006
+  SQL-Abstract-1.84
+    pathname: I/IL/ILMARI/SQL-Abstract-1.84.tar.gz
+    provides:
+      SQL::Abstract 1.84
+      SQL::Abstract::Test undef
+      SQL::Abstract::Tree undef
+    requirements:
+      Exporter 5.57
+      ExtUtils::MakeMaker 0
+      Hash::Merge 0.12
+      List::Util 0
+      MRO::Compat 0.12
+      Moo 2.000001
+      Scalar::Util 0
+      Sub::Quote 2.000001
+      Text::Balanced 2.00
+  Sub-Exporter-Progressive-0.001013
+    pathname: F/FR/FREW/Sub-Exporter-Progressive-0.001013.tar.gz
+    provides:
+      Sub::Exporter::Progressive 0.001013
+    requirements:
+      ExtUtils::MakeMaker 0
+  Sub-Quote-2.004000
+    pathname: H/HA/HAARG/Sub-Quote-2.004000.tar.gz
+    provides:
+      Sub::Defer 2.004000
+      Sub::Quote 2.004000
+    requirements:
+      ExtUtils::MakeMaker 0
+      Scalar::Util 0
+      perl 5.006
   Sub-Uplevel-0.25
     pathname: D/DA/DAGOLDEN/Sub-Uplevel-0.25.tar.gz
     provides:
@@ -604,123 +620,3 @@ DISTRIBUTIONS
       perl 5.006001
       strict 0
       warnings 0
-  URI-1.71
-    pathname: E/ET/ETHER/URI-1.71.tar.gz
-    provides:
-      URI 1.71
-      URI::Escape 3.31
-      URI::Heuristic 4.20
-      URI::IRI 1.71
-      URI::QueryParam 1.71
-      URI::Split 1.71
-      URI::URL 5.04
-      URI::WithBase 2.20
-      URI::_foreign 1.71
-      URI::_generic 1.71
-      URI::_idna 1.71
-      URI::_ldap 1.71
-      URI::_login 1.71
-      URI::_punycode 1.71
-      URI::_query 1.71
-      URI::_segment 1.71
-      URI::_server 1.71
-      URI::_userpass 1.71
-      URI::data 1.71
-      URI::file 4.21
-      URI::file::Base 1.71
-      URI::file::FAT 1.71
-      URI::file::Mac 1.71
-      URI::file::OS2 1.71
-      URI::file::QNX 1.71
-      URI::file::Unix 1.71
-      URI::file::Win32 1.71
-      URI::ftp 1.71
-      URI::gopher 1.71
-      URI::http 1.71
-      URI::https 1.71
-      URI::ldap 1.71
-      URI::ldapi 1.71
-      URI::ldaps 1.71
-      URI::mailto 1.71
-      URI::mms 1.71
-      URI::news 1.71
-      URI::nntp 1.71
-      URI::pop 1.71
-      URI::rlogin 1.71
-      URI::rsync 1.71
-      URI::rtsp 1.71
-      URI::rtspu 1.71
-      URI::sftp 1.71
-      URI::sip 1.71
-      URI::sips 1.71
-      URI::snews 1.71
-      URI::ssh 1.71
-      URI::telnet 1.71
-      URI::tn3270 1.71
-      URI::urn 1.71
-      URI::urn::isbn undef
-      URI::urn::oid 1.71
-    requirements:
-      Exporter 5.57
-      ExtUtils::MakeMaker 0
-      MIME::Base64 2
-      Scalar::Util 0
-      parent 0
-      perl 5.008001
-      utf8 0
-  URI-Nested-0.10
-    pathname: D/DW/DWHEELER/URI-Nested-0.10.tar.gz
-    provides:
-      URI::Nested 0.10
-    requirements:
-      Module::Build 0.30
-      Test::More 0.88
-      URI 1.40
-      perl 5.008001
-  URI-db-0.17
-    pathname: D/DW/DWHEELER/URI-db-0.17.tar.gz
-    provides:
-      URI::cassandra 0.17
-      URI::couch 0.17
-      URI::couchdb 0.17
-      URI::cubrid 0.17
-      URI::db 0.17
-      URI::db2 0.17
-      URI::derby 0.17
-      URI::firebird 0.17
-      URI::hive 0.17
-      URI::impala 0.17
-      URI::informix 0.17
-      URI::ingres 0.17
-      URI::interbase 0.17
-      URI::ldapdb 0.17
-      URI::maria 0.17
-      URI::mariadb 0.17
-      URI::max 0.17
-      URI::maxdb 0.17
-      URI::monet 0.17
-      URI::monetdb 0.17
-      URI::mongo 0.17
-      URI::mongodb 0.17
-      URI::mssql 0.17
-      URI::mysql 0.17
-      URI::oracle 0.17
-      URI::pg 0.17
-      URI::pgsql 0.17
-      URI::pgxc 0.17
-      URI::postgres 0.17
-      URI::postgresql 0.17
-      URI::postgresxc 0.17
-      URI::sqlite 0.17
-      URI::sqlite3 0.17
-      URI::sqlserver 0.17
-      URI::sybase 0.17
-      URI::teradata 0.17
-      URI::unify 0.17
-      URI::vertica 0.17
-    requirements:
-      Module::Build 0.30
-      Test::More 0.88
-      URI 1.40
-      URI::Nested 0.10
-      perl 5.008001

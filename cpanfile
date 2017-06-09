@@ -1,6 +1,7 @@
 requires 'Mojolicious';
 requires 'Mojolicious::Plugin::I18N';
 requires 'Mojolicious::Plugin::DebugDumperHelper';
+requires 'Mojolicious::Plugin::PgURLHelper';
 requires 'Mojo::Pg';
 requires 'Minion', '== 4.06';
 requires 'Etherpad';
