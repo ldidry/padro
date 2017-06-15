@@ -124,19 +124,23 @@ sub startup {
             my $job  = shift;
             my $name = shift;
 
-            my $ep        = $job->app->ep;
-            my $revisions = $ep->get_revisions_count($name);
+            my $exists = $job->app->pg->db->query('SELECT name FROM pads WHERE name = (?)', $name)->hashes->size;
 
-            # This is an empty pad
-            return undef unless ($revisions);
+            unless ($exists) {
+                my $ep        = $job->app->ep;
+                my $revisions = $ep->get_revisions_count($name);
 
-            $job->app->minion->enqueue(fetch_authors_of_pad         => [$name]);
-            $job->app->minion->enqueue(fetch_saved_revisions_of_pad => [$name]);
-            $job->app->minion->enqueue(fetch_pad_text               => [$name]);
-            $job->app->minion->enqueue(fetch_pad_html               => [$name]);
-            $job->app->minion->enqueue(fetch_pad_last_edition       => [$name]);
+                # This is an empty pad
+                return undef unless ($revisions);
 
-            $job->app->pg->db->query('INSERT INTO pads (name, revisions) VALUES (?, ?) RETURNING *', ($name, $revisions));
+                $job->app->minion->enqueue(fetch_authors_of_pad         => [$name]);
+                $job->app->minion->enqueue(fetch_saved_revisions_of_pad => [$name]);
+                $job->app->minion->enqueue(fetch_pad_text               => [$name]);
+                $job->app->minion->enqueue(fetch_pad_html               => [$name]);
+                $job->app->minion->enqueue(fetch_pad_last_edition       => [$name]);
+
+                $job->app->pg->db->query('INSERT INTO pads (name, revisions) VALUES (?, ?) RETURNING *', ($name, $revisions));
+            }
         }
     );
     $self->app->minion->add_task(
@@ -286,7 +290,7 @@ sub startup {
 
     # Database migration
     my $migrations = Mojo::Pg::Migrations->new(pg => $self->pg);
-    if ($self->mode eq 'development') {
+    if ($self->mode eq 'development' && $ENV{PADRO_DEV}) {
         $migrations->from_file('migrations.sql')->migrate(0)->migrate(1);
         $self->app->minion->reset;
     } else {
